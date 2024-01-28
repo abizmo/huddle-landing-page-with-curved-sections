@@ -1,16 +1,27 @@
 ---
-
+import '../styles/global.css'
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='utf-8' />
+    <link
+      rel='icon'
+      type='image/png'
+      sizes='32x32'
+      href='./images/favicon-32x32.png'
+    />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta name='generator' content={Astro.generator} />
+    <title>Frontend Mentor | Huddle landing page with curved sections</title>
+  </head>
+  <body>
+    <header class='flex justify-between align-middle'>
+      <img src='./images/logo.svg' alt='Huddle' />
+      <button
+        class='border border-primary-400 rounded-full py-2 px-8 text-sm capitalize text-primary-400'
+        >try it free</button
+      >
+    </header>
+  </body>
 </html>
