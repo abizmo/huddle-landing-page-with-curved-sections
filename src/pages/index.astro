@@ -16,12 +16,39 @@ import '../styles/global.css'
     <title>Frontend Mentor | Huddle landing page with curved sections</title>
   </head>
   <body>
-    <header class='flex justify-between align-middle'>
-      <img src='./images/logo.svg' alt='Huddle' />
+    <header
+      class='container flex items-center justify-between px-4 py-8 mx-auto md:py-16'
+    >
+      <img class='h-5 md:h-full' src='./images/logo.svg' alt='Huddle' />
       <button
-        class='border border-primary-400 rounded-full py-2 px-8 text-sm capitalize text-primary-400'
+        class='px-8 py-2 text-xs capitalize border rounded-full md:text-sm border-primary-400 text-primary-400'
         >try it free</button
       >
     </header>
+    <main class='mt-28'>
+      <section class='container px-8 mx-auto text-center'>
+        <h1
+          class='mb-8 text-3xl font-bold leading-snug md:text-5xl md:mb-12 text-neutral-700'
+        >
+          Build The Community Your Fans Will Love
+        </h1>
+        <p
+          class='mx-auto mb-16 text-md md:text-lg text-neutral-500 text-balance md:text-wrap max-w-[55ch]'
+        >
+          Huddle re-imagines the way we build communities. You have a voice, but
+          so does your audience. Create connections with your users as you
+          engage in genuine discussion.
+        </p>
+        <button
+          class='px-16 py-4 mb-32 text-sm font-semibold capitalize rounded-full shadow-lg md:px-20 md:py-6 md:text-base bg-primary-400 text-neutral-200'
+          >Get Started for free</button
+        >
+        <img
+          src='./images/screen-mockups.svg'
+          alt='screen mockups'
+          class='mx-auto'
+        />
+      </section>
+    </main>
   </body>
 </html>
