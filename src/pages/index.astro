@@ -1,5 +1,6 @@
 ---
-import '../styles/global.css'
+import Button from '@/components/ui/button.astro'
+import '@/styles/global.css'
 ---
 
 <html lang='en'>
@@ -20,10 +21,7 @@ import '../styles/global.css'
       class='container flex items-center justify-between px-4 py-8 mx-auto md:py-16'
     >
       <img class='h-5 md:h-full' src='./images/logo.svg' alt='Huddle' />
-      <button
-        class='px-8 py-2 text-xs capitalize border rounded-full md:text-sm border-primary-400 text-primary-400'
-        >try it free</button
-      >
+      <Button variant='outline' size='sm'>Try if free</Button>
     </header>
     <main class='mt-28'>
       <section class='container px-8 mx-auto text-center'>
@@ -39,10 +37,7 @@ import '../styles/global.css'
           so does your audience. Create connections with your users as you
           engage in genuine discussion.
         </p>
-        <button
-          class='px-16 py-4 mb-32 text-sm font-semibold capitalize rounded-full shadow-lg md:px-20 md:py-6 md:text-base bg-primary-400 text-neutral-200'
-          >Get Started for free</button
-        >
+        <Button class='mb-32'>Get Started for free</Button>
         <img
           src='./images/screen-mockups.svg'
           alt='screen mockups'

@@ -1,0 +1,33 @@
+---
+import { cva, type VariantProps } from 'class-variance-authority'
+
+import { cn } from '@/lib/utils'
+
+const buttonVariants = cva('capitalize rounded-full', {
+  variants: {
+    variant: {
+      default: 'font-semibold shadow-lg bg-primary-400 text-neutral-200',
+      outline: 'border border-primary-400 text-primary-400'
+    },
+    size: {
+      default: 'px-16 py-4 text-sm md:px-20 md:py-6 md:text-base',
+      sm: 'px-8 py-2 text-xs md:text-sm'
+    }
+  },
+  defaultVariants: {
+    variant: 'default',
+    size: 'default'
+  }
+})
+
+const {
+  class: className,
+  variant,
+  size,
+  ...props
+} = Astro.props as VariantProps<typeof buttonVariants> & { class: string }
+---
+
+<button class={cn(buttonVariants({ variant, size, className }))} {...props}
+  ><slot /></button
+>
