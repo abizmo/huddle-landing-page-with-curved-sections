@@ -1,4 +1,9 @@
 ---
+import IconCommunities from '@/components/icons/icon-communities.astro'
+import IconMessages from '@/components/icons/icon-messages.astro'
+import Stats from '@/components/stats/stats.astro'
+import StatsText from '@/components/stats/stats-text.astro'
+import StatsValue from '@/components/stats/stats-value.astro'
 import Button from '@/components/ui/button.astro'
 import '@/styles/global.css'
 ---
@@ -43,6 +48,18 @@ import '@/styles/global.css'
           alt='screen mockups'
           class='mx-auto'
         />
+      </section>
+      <section class='container px-8 mx-auto mt-32 text-center'>
+        <Stats>
+          <IconCommunities ratioAspect={2 / 3} slot='icon' />
+          <StatsValue slot='value'>1.4k+</StatsValue>
+          <StatsText slot='text'>Communities Formed</StatsText>
+        </Stats>
+        <Stats>
+          <IconMessages ratioAspect={2 / 3} slot='icon' />
+          <StatsValue slot='value'>2.7m+</StatsValue>
+          <StatsText slot='text'>Messages Sent</StatsText>
+        </Stats>
       </section>
     </main>
   </body>
