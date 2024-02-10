@@ -1,0 +1,55 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import Container from './ui/container.astro'
+
+interface Props {
+  feature: CollectionEntry<'features'>
+  dark?: boolean
+  reverse?: boolean
+  darkBorder?: number
+}
+
+const { feature, dark, darkBorder, reverse } = Astro.props
+
+const darkclass = dark
+  ? `bg-neutral-200 before:content-[''] before:absolute before:inset-x-0 before:bottom-full before:bg-no-repeat before:bg-cover before:h-[165px] after:content-[''] after:absolute after:inset-x-0 after:top-full after:bg-no-repeat after:bg-cover after:h-[165px]`
+  : ''
+---
+
+<article
+  class:list={[
+    'relative mt-40 mb-56 py-24 md:py-40',
+    darkclass,
+    {
+      'before:bg-top-mobile-1 after:bg-bottom-mobile-1 md:before:bg-top-desktop-1 md:after:bg-bottom-desktop-1':
+        darkBorder === 0,
+      'before:bg-top-mobile-2 after:bg-bottom-mobile-2 md:before:bg-top-desktop-2 md:after:bg-bottom-desktop-2':
+        darkBorder === 2
+    }
+  ]}
+>
+  <Container>
+    <div
+      class:list={[
+        'md:flex md:items-center md:gap-32',
+        { 'md:flex-row-reverse': reverse }
+      ]}
+    >
+      <img
+        src={feature.image}
+        alt={feature.title}
+        class='mxmd:mb-24 md:w-1/2'
+      />
+      <div class='w-full mxmd:text-center'>
+        <h2
+          class='mb-6 text-2xl font-bold capitalize md:text-4xl text-neutral-700'
+        >
+          {feature.title}
+        </h2>
+        <p class='leading-relaxed text-neutral-700'>
+          {feature.text}
+        </p>
+      </div>
+    </div>
+  </Container>
+</article>

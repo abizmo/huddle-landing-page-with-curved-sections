@@ -5,7 +5,12 @@ import Stats from '@/components/stats/stats.astro'
 import StatsText from '@/components/stats/stats-text.astro'
 import StatsValue from '@/components/stats/stats-value.astro'
 import Button from '@/components/ui/button.astro'
+import Container from '@/components/ui/container.astro'
 import '@/styles/global.css'
+import { getCollection, type CollectionEntry } from 'astro:content'
+import Feature from '@/components/feature.astro'
+
+const features: CollectionEntry<'features'>[] = await getCollection('features')
 ---
 
 <html lang='en'>
@@ -29,37 +34,53 @@ import '@/styles/global.css'
       <Button variant='outline' size='sm'>Try if free</Button>
     </header>
     <main class='mt-28'>
-      <section class='container px-8 mx-auto text-center'>
-        <h1
-          class='mb-8 text-3xl font-bold leading-snug md:text-5xl md:mb-12 text-neutral-700'
-        >
-          Build The Community Your Fans Will Love
-        </h1>
-        <p
-          class='mx-auto mb-16 text-md md:text-lg text-neutral-500 text-balance md:text-wrap max-w-[55ch]'
-        >
-          Huddle re-imagines the way we build communities. You have a voice, but
-          so does your audience. Create connections with your users as you
-          engage in genuine discussion.
-        </p>
-        <Button class='mb-32'>Get Started for free</Button>
-        <img
-          src='./images/screen-mockups.svg'
-          alt='screen mockups'
-          class='mx-auto'
-        />
-      </section>
-      <section class='container px-8 mx-auto mt-32 text-center md:flex'>
-        <Stats>
-          <IconCommunities ratioAspect={2 / 3} slot='icon' />
-          <StatsValue slot='value'>1.4k+</StatsValue>
-          <StatsText slot='text'>Communities Formed</StatsText>
-        </Stats>
-        <Stats>
-          <IconMessages ratioAspect={2 / 3} slot='icon' />
-          <StatsValue slot='value'>2.7m+</StatsValue>
-          <StatsText slot='text'>Messages Sent</StatsText>
-        </Stats>
+      <Container>
+        <section class='mx-auto text-center'>
+          <h1
+            class='mb-8 text-3xl font-bold leading-snug md:text-5xl md:mb-12 text-neutral-700'
+          >
+            Build The Community Your Fans Will Love
+          </h1>
+          <p
+            class='mx-auto mb-16 text-md md:text-lg text-neutral-500 text-balance md:text-wrap max-w-[55ch]'
+          >
+            Huddle re-imagines the way we build communities. You have a voice,
+            but so does your audience. Create connections with your users as you
+            engage in genuine discussion.
+          </p>
+          <Button class='mb-32'>Get Started for free</Button>
+          <img
+            src='./images/screen-mockups.svg'
+            alt='screen mockups'
+            class='mx-auto'
+          />
+        </section>
+        <section class='mt-32 text-center md:flex'>
+          <Stats>
+            <IconCommunities ratioAspect={2 / 3} slot='icon' />
+            <StatsValue slot='value'>1.4k+</StatsValue>
+            <StatsText slot='text'>Communities Formed</StatsText>
+          </Stats>
+          <Stats>
+            <IconMessages ratioAspect={2 / 3} slot='icon' />
+            <StatsValue slot='value'>2.7m+</StatsValue>
+            <StatsText slot='text'>Messages Sent</StatsText>
+          </Stats>
+        </section>
+      </Container>
+      <section>
+        {
+          features
+            .sort((f1, f2) => (f1.data.order >= f2.data.order ? 1 : -1))
+            .map((f, i) => (
+              <Feature
+                feature={f.data}
+                dark={i % 2 === 0}
+                reverse={i % 2 === 0}
+                darkBorder={i % 4}
+              />
+            ))
+        }
       </section>
     </main>
   </body>

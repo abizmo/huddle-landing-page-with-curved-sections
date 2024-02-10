@@ -19,10 +19,21 @@ export default {
       body: ['"Open Sans"', 'sans-serif'],
       heading: ['"Poppins"', 'sans-serif']
     },
+    extend: {
+      backgroundImage: {
+        'top-desktop-1': "url('/images/bg-section-top-desktop-1.svg')",
+        'bottom-desktop-1': "url('/images/bg-section-bottom-desktop-1.svg')",
+        'top-desktop-2': "url('/images/bg-section-top-desktop-2.svg')",
+        'bottom-desktop-2': "url('/images/bg-section-bottom-desktop-2.svg')",
+        'top-mobile-1': "url('/images/bg-section-top-mobile-1.svg')",
+        'bottom-mobile-1': "url('/images/bg-section-bottom-mobile-1.svg')",
+        'top-mobile-2': "url('/images/bg-section-top-mobile-2.svg')",
+        'bottom-mobile-2': "url('/images/bg-section-bottom-mobile-2.svg')"
+      },
       screens: {
         mxmd: { max: '768px' }
       }
-      }
+    }
   },
   plugins: []
 }
