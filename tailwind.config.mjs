@@ -19,7 +19,10 @@ export default {
       body: ['"Open Sans"', 'sans-serif'],
       heading: ['"Poppins"', 'sans-serif']
     },
-    extend: {}
+      screens: {
+        mxmd: { max: '768px' }
+      }
+      }
   },
   plugins: []
 }
