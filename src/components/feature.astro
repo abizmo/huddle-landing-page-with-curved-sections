@@ -9,7 +9,12 @@ interface Props {
   darkBorder?: number
 }
 
-const { feature, dark, darkBorder, reverse } = Astro.props
+const {
+  feature: { data: feature },
+  dark,
+  darkBorder,
+  reverse
+} = Astro.props
 
 const darkclass = dark
   ? `bg-neutral-200 before:content-[''] before:absolute before:inset-x-0 before:bottom-full before:bg-no-repeat before:bg-cover before:h-[165px] after:content-[''] after:absolute after:inset-x-0 after:top-full after:bg-no-repeat after:bg-cover after:h-[165px]`

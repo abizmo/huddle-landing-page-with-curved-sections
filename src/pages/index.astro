@@ -74,7 +74,7 @@ const features: CollectionEntry<'features'>[] = await getCollection('features')
             .sort((f1, f2) => (f1.data.order >= f2.data.order ? 1 : -1))
             .map((f, i) => (
               <Feature
-                feature={f.data}
+                feature={f}
                 dark={i % 2 === 0}
                 reverse={i % 2 === 0}
                 darkBorder={i % 4}
