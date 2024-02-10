@@ -2,7 +2,7 @@ import { z, defineCollection } from 'astro:content'
 
 const featuresCollection = defineCollection({
   type: 'data',
-  schmea: z.object({
+  schema: z.object({
     title: z.string(),
     text: z.string(),
     image: z.string(),
