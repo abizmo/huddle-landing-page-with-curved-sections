@@ -17,14 +17,14 @@ import Button from './ui/button.astro'
 
 <script>
   import isValidEmail from '@/utils/is-valid-email'
-  const form = document.querySelector('form')
-  const input = document.getElementById('email')
-  const error = document.querySelector('#error')
+  const form = document.querySelector('form') as HTMLFormElement
+  const input = document.getElementById('email') as HTMLInputElement
+  const error = document.querySelector('#error') as HTMLParagraphElement
 
   form.addEventListener('submit', (e) => {
     e.preventDefault()
     const email = new FormData(form).get('email')
-    if (!isValidEmail(email)) {
+    if (typeof email !== 'string' || !isValidEmail(email)) {
       error.textContent = 'Check your email please'
       input.classList.add('border-2', 'border-secondary-400')
       console.log('email is invalid')
