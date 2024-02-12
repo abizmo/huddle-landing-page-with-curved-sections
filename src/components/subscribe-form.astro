@@ -1,0 +1,37 @@
+---
+import Button from './ui/button.astro'
+---
+
+<form class='flex flex-wrap justify-end gap-4 md:gap-8'>
+  <div class='w-full md:max-w-80'>
+    <input
+      type='text'
+      class='w-full h-12 px-4 rounded-lg text-neutral-700'
+      name='email'
+      id='email'
+    />
+    <p id='error' class='mt-2 text-secondary-400'></p>
+  </div>
+  <Button id='submit' variant='squared' size='lg'>Subscribe</Button>
+</form>
+
+<script>
+  import isValidEmail from '@/utils/is-valid-email'
+  const form = document.querySelector('form')
+  const input = document.getElementById('email')
+  const error = document.querySelector('#error')
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault()
+    const email = new FormData(form).get('email')
+    if (!isValidEmail(email)) {
+      error.textContent = 'Check your email please'
+      input.classList.add('border-2', 'border-secondary-400')
+      console.log('email is invalid')
+    } else {
+      error.textContent = ''
+      input.classList.remove('border-2', 'border-secondary-400')
+      console.log('email is valid')
+    }
+  })
+</script>

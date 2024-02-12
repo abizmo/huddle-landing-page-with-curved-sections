@@ -8,6 +8,7 @@ import Link from '@/components/link.astro'
 import Stats from '@/components/stats/stats.astro'
 import StatsText from '@/components/stats/stats-text.astro'
 import StatsValue from '@/components/stats/stats-value.astro'
+import SubscribeForm from '@/components/subscribe-form.astro'
 import Button from '@/components/ui/button.astro'
 import Container from '@/components/ui/container.astro'
 import BaseLayout from '@/layouts/base-layout.astro'
@@ -97,10 +98,7 @@ const features: CollectionEntry<'features'>[] = await getCollection('features')
           To recieve tips on how to grow your community, sign up to our weekly
           newsletter. We'll never send you spam or pass on your email address
         </p>
-        <form class='flex flex-wrap justify-end gap-4 md:gap-8'>
-          <input type='email' class='w-full h-12 rounded-lg md:max-w-80' />
-          <Button variant='squared' size='lg'>Subscribe</Button>
-        </form>
+        <SubscribeForm />
       </div>
       <div>
         <img
