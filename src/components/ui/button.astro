@@ -7,9 +7,11 @@ const buttonVariants = cva('capitalize rounded-full', {
   variants: {
     variant: {
       default:
-        'font-semibold rounded-full shadow-lg bg-primary-400 text-neutral-200',
-      outline: 'border border-primary-400 rounded-full text-primary-400',
-      squared: 'rounded-lg bg-primary-400 text-neutral-200 font-semibold'
+        'font-semibold rounded-full shadow-lg bg-primary-400 text-neutral-200 hover:bg-primary-200',
+      outline:
+        'border border-primary-400 rounded-full text-primary-400 hover:border-primary-200 hover:text-primary-200',
+      squared:
+        'rounded-lg bg-primary-400 text-neutral-200 font-semibold hover:bg-primary-200'
     },
     size: {
       default: 'px-16 py-4 text-sm md:px-20 md:py-6 md:text-base',
