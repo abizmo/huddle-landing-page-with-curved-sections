@@ -21,6 +21,8 @@ export default {
     },
     extend: {
       backgroundImage: {
+        'top-desktop-footer': "url('/images/bg-footer-top-desktop.svg')",
+        'top-mobile-footer': "url('/images/bg-footer-top-mobile.svg')",
         'top-desktop-1': "url('/images/bg-section-top-desktop-1.svg')",
         'bottom-desktop-1': "url('/images/bg-section-bottom-desktop-1.svg')",
         'top-desktop-2': "url('/images/bg-section-top-desktop-2.svg')",
