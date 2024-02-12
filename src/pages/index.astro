@@ -4,6 +4,7 @@ import IconMessages from '@/components/icons/icon-messages.astro'
 import IconEmail from '@/components/icons/icon-email.astro'
 import IconPhone from '@/components/icons/icon-phone.astro'
 import Feature from '@/components/feature.astro'
+import Link from '@/components/link.astro'
 import Stats from '@/components/stats/stats.astro'
 import StatsText from '@/components/stats/stats-text.astro'
 import StatsValue from '@/components/stats/stats-value.astro'
@@ -119,21 +120,21 @@ const features: CollectionEntry<'features'>[] = await getCollection('features')
         <p class='flex items-center gap-4'>
           <IconEmail width={20} height={16} />example@company.com
         </p>
-        <ul class='flex gap-6 mt-16'>
+        <ul class='flex items-center gap-6 mt-16'>
           <li>
-            <a href='#' class='hover:text-primary-400'
-              ><i class='fa-brands fa-square-facebook fa-xl'></i></a
-            >
+            <Link href='#'>
+              <i class='fa-brands fa-square-facebook'></i>
+            </Link>
           </li>
           <li>
-            <a href='#' class='hover:text-primary-400'
-              ><i class='fa-brands fa-instagram fa-xl'></i></a
-            >
+            <Link href='#'>
+              <i class='fa-brands fa-instagram'></i>
+            </Link>
           </li>
           <li>
-            <a href='#' class='hover:text-primary-400'
-              ><i class='fa-brands fa-square-twitter fa-xl'></i></a
-            >
+            <Link href='#'>
+              <i class='fa-brands fa-square-twitter'></i>
+            </Link>
           </li>
         </ul>
       </div>
