@@ -1,0 +1,140 @@
+---
+import IconCommunities from '@/components/icons/icon-communities.astro'
+import IconMessages from '@/components/icons/icon-messages.astro'
+import IconEmail from '@/components/icons/icon-email.astro'
+import IconPhone from '@/components/icons/icon-phone.astro'
+import Feature from '@/components/feature.astro'
+import Link from '@/components/link.astro'
+import Stats from '@/components/stats/stats.astro'
+import StatsText from '@/components/stats/stats-text.astro'
+import StatsValue from '@/components/stats/stats-value.astro'
+import SubscribeForm from '@/components/subscribe-form.astro'
+import Button from '@/components/ui/button.astro'
+import Container from '@/components/ui/container.astro'
+import BaseLayout from '@/layouts/base-layout.astro'
+import '@/styles/global.css'
+import { getCollection, type CollectionEntry } from 'astro:content'
+const features: CollectionEntry<'features'>[] = await getCollection('features')
+---
+
+<BaseLayout>
+  <header
+    class='container flex items-center justify-between px-4 py-8 mx-auto md:py-20'
+  >
+    <img class='h-5 md:h-full' src='./images/logo.svg' alt='Huddle' />
+    <Button variant='outline' size='sm'>Try if free</Button>
+  </header>
+  <main class='mt-48'>
+    <Container>
+      <section class='mx-auto text-center'>
+        <h1
+          class='mb-8 text-3xl font-bold leading-snug md:text-5xl md:mb-12 text-neutral-700'
+        >
+          Build The Community Your Fans Will Love
+        </h1>
+        <p
+          class='mx-auto mb-16 text-md md:text-lg text-neutral-500 text-balance md:text-wrap max-w-[55ch]'
+        >
+          Huddle re-imagines the way we build communities. You have a voice, but
+          so does your audience. Create connections with your users as you
+          engage in genuine discussion.
+        </p>
+        <Button class='mb-32'>Get Started for free</Button>
+        <img
+          src='./images/screen-mockups.svg'
+          alt='screen mockups'
+          class='mx-auto'
+        />
+      </section>
+      <section class='mt-32 text-center md:flex'>
+        <Stats>
+          <IconCommunities ratioAspect={2 / 3} slot='icon' />
+          <StatsValue slot='value'>1.4k+</StatsValue>
+          <StatsText slot='text'>Communities Formed</StatsText>
+        </Stats>
+        <Stats>
+          <IconMessages ratioAspect={2 / 3} slot='icon' />
+          <StatsValue slot='value'>2.7m+</StatsValue>
+          <StatsText slot='text'>Messages Sent</StatsText>
+        </Stats>
+      </section>
+    </Container>
+    <section>
+      {
+        features
+          .sort((f1, f2) => (f1.data.order >= f2.data.order ? 1 : -1))
+          .map((f, i) => (
+            <Feature
+              feature={f}
+              dark={i % 2 === 0}
+              reverse={i % 2 === 0}
+              darkBorder={i % 4}
+            />
+          ))
+      }
+    </section>
+    <section class='text-center mb-80 md:mt-96'>
+      <Container>
+        <h2
+          class='mb-8 text-3xl font-bold leading-snug capitalize md:text-5xl md:mb-16 text-neutral-700'
+        >
+          Ready to build your community
+        </h2>
+        <Button>Get Started for free</Button>
+      </Container>
+    </section>
+  </main>
+  <footer
+    class:list={[
+      'relative bg-neutral-700 text-neutral-200 md:mt-96 py-24 md:py-40',
+      "before:content-[''] before:absolute before:inset-x-0 before:bottom-full before:bg-no-repeat before:bg-cover before:h-[53px] before:bg-top-mobile-footer md:before:h-[194px] md:before:bg-top-desktop-footer"
+    ]}
+  >
+    <Container class='md:flex md:flex-row-reverse md:justify-between'>
+      <div class='mxmd:mb-28 md:w-[32rem]'>
+        <h3 class='mb-6 text-xl font-bold uppercase md:text-2xl'>Newsletter</h3>
+        <p class='mb-8 text-base leading-relaxed md:max-w-[45ch]'>
+          To recieve tips on how to grow your community, sign up to our weekly
+          newsletter. We'll never send you spam or pass on your email address
+        </p>
+        <SubscribeForm />
+      </div>
+      <div>
+        <img
+          src='./images/logo.svg'
+          alt='Huddle'
+          class='mb-6 filter brightness-0 invert'
+        />
+        <p class='mb-10 leading-relaxed md:max-w-[45ch]'>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad, dolorum.
+          Tempore voluptate mollitia facere cumque quas nesciunt perferendis
+          explicabo ratione, quo quidem cum, repellat quam unde dicta ut
+          excepturi assumenda!
+        </p>
+        <p class='flex items-center gap-4 mb-4'>
+          <IconPhone width={18} height={18} />Phone: +1-543-123-4567
+        </p>
+        <p class='flex items-center gap-4'>
+          <IconEmail width={20} height={16} />example@company.com
+        </p>
+        <ul class='flex items-center gap-6 mt-16'>
+          <li>
+            <Link href='#'>
+              <i class='fa-brands fa-square-facebook'></i>
+            </Link>
+          </li>
+          <li>
+            <Link href='#'>
+              <i class='fa-brands fa-instagram'></i>
+            </Link>
+          </li>
+          <li>
+            <Link href='#'>
+              <i class='fa-brands fa-square-twitter'></i>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    </Container>
+  </footer>
+</BaseLayout>
